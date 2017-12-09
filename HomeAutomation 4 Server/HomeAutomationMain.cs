@@ -29,19 +29,19 @@ namespace HomeAutomationCore
         {
             int pos = Array.IndexOf(args, "--nogpio");
             bool noGPIO = false;
-            if (pos <= -1)
+            if (pos > -1)
             {
                 noGPIO = true;
             }
             new HomeAutomationServer("A Switchando family", "password");
-
+            
             if (!noGPIO) Console.WriteLine(PIGPIO.pigpio_start(null, null));
 
             Console.WriteLine("Welcome to Switchando Automation 4 BETA 4 (Bountiful Update) Server by Marco Realacci!");
 
             if (HomeAutomationServer.server.ObjectNetwork.Objects.MQTTClient == null)
             {
-                Console.WriteLine("\n\nIt seems MQTT is not setted up yet, write down your MQTT broker's address (or leave it blank to skip MQTT configuration):");
+                Console.WriteLine("\n\nIt seems MQTT is not setted up yet, write down your MQTT broker's address:");
                 string addr = Console.ReadLine();
                 if (!string.IsNullOrEmpty(addr))
                 {

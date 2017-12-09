@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace HomeAutomation.Network.Getters
 {
-    class ObjectGetter
+    public class ObjectGetter
     {
         public static string SendParameters(string method, string[] request, Identity login)
         {
